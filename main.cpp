@@ -31,39 +31,23 @@ void fillGraph(WeightedGraph<char>& g) {
     g.addEdge('h', 'i', 7);
 }
 
-void fillGraph(WeightedGraph<int>& g) {
-    g.addVertex(0);
-    g.addVertex(1);
-    g.addVertex(2);
-    g.addVertex(3);
-    g.addVertex(4);
-
-    g.addEdge(0, 1, 3);
-	g.addEdge(0, 3, 7);
-	g.addEdge(0, 4, 8);
-	g.addEdge(1, 2, 1);
-	g.addEdge(1, 3, 4);
-	g.addEdge(2, 3, 2);
-	g.addEdge(3, 4, 3);
-}
-
 int main() {
-    // WeightedGraph<char> g;
-    // fillGraph(g);
+    WeightedGraph<char> g;
+    fillGraph(g);
 
-    // Kruskal kruskal(g);
-    // for (auto edge: kruskal.getMst()) {
-    //     std::cout << std::get<0>(edge) << " - "
-    //                 << std::get<1>(edge) << " : "
-    //                 << std::get<2>(edge) << '\n';
-    // }
+    Kruskal kruskal(g);
+    for (auto edge: kruskal.getMst()) {
+        std::cout << std::get<0>(edge) << " - "
+                    << std::get<1>(edge) << " : "
+                    << std::get<2>(edge) << '\n';
+    }
 
-    // std::cout << '\n';
+    std::cout << '\n';
 
-    // Prim prim(g, 'a');
-    // for (auto edge: prim.getMst()) {
-    //     std::cout << std::get<0>(edge) << " - "
-    //                 << std::get<1>(edge) << " : "
-    //                 << std::get<2>(edge) << '\n';
-    // }
+    Prim prim(g, 'a');
+    for (auto edge: prim.getMst()) {
+        std::cout << std::get<0>(edge) << " - "
+                    << std::get<1>(edge) << " : "
+                    << std::get<2>(edge) << '\n';
+    }
 }
